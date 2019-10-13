@@ -1,7 +1,8 @@
 from mycalc.calc import (
     add,
     sub,
-    times
+    times,
+    div
 )
 import pytest
 
@@ -31,3 +32,13 @@ def test_sub(a, b, ans):
 ])
 def test_times(a, b, ans):
     assert times(a, b) == ans
+
+
+@pytest.mark.parametrize('a,b,is_floor,ans', [
+    (8, 4, False, 2),
+    (5, 2, False, 2.5),
+    (9, 4, True, 2),
+    (1, 2, True, 0)
+])
+def test_div(a, b, is_floor, ans):
+    assert div(a, b, is_floor=is_floor) == ans
