@@ -12,6 +12,6 @@ def times(a, b):
 
 def div(a, b, is_floor=False):
     if is_floor:
-        return a / b
-    else:
         return a // b
+    else:
+        return a / b
