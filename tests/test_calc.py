@@ -1,6 +1,7 @@
 from mycalc.calc import (
     add,
-    sub
+    sub,
+    times
 )
 import pytest
 
@@ -21,3 +22,12 @@ def test_add(a, b, ans):
 ])
 def test_sub(a, b, ans):
     assert sub(a, b) == ans
+
+
+@pytest.mark.parametrize('a,b,ans', [
+    (2, 3, 6),
+    (-3, 4, -12),
+    (-5, -6, 30)
+])
+def test_times(a, b, ans):
+    assert times(a, b) == ans
