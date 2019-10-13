@@ -1,4 +1,7 @@
-from mycalc.calc import add
+from mycalc.calc import (
+    add,
+    sub
+)
 import pytest
 
 
@@ -9,3 +12,12 @@ import pytest
 ])
 def test_add(a, b, ans):
     assert add(a, b) == ans
+
+
+@pytest.mark.parametrize('a,b,ans', [
+    (4, 2, 2),
+    (1, 4, -3),
+    (-1, -4, 3)
+])
+def test_sub(a, b, ans):
+    assert sub(a, b) == ans
